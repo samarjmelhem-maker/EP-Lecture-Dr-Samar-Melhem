@@ -2395,7 +2395,7 @@
 
     <div class="sticky">
       <span class="sticky-label">For the assessment</span>
-      <p>The DOCX Study Guide that downloads from the top bar mirrors this lecture section by section, with worked examples and self-test prompts. The Cases Module gives you exam-grade practice. Use both.</p>
+      <p>The 53-page <strong>Study Reference PDF</strong> (downloadable from the top bar or the button below) mirrors this lecture section by section, with worked examples, an 18-prompt self-test, and a full abbreviations glossary. The Cases Module gives you exam-grade practice. Use both.</p>
     </div>
   </div>
 </section>
@@ -2587,13 +2587,19 @@ function flashToast(msg) {
    STUDY PACK + LEGACY HANDLERS (no-ops)
 ============================================ */
 function downloadStudyPack() {
+  // External file approach — PDF sits alongside this HTML in the repo
   const a = document.createElement('a');
-  a.href = 'EP_Study_Guide.docx';
-  a.download = 'EP_Study_Guide.docx';
+  a.href = 'EP_Lecture_Study_Reference.pdf';
+  a.download = 'EP_Lecture_Study_Reference.pdf';
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
-  flashToast('Downloading EP Study Guide…');
+  flashToast('Downloading EP Study Reference (PDF, 53 pages)…');
+}
+
+// Open the study pack in a new browser tab (alternative to download)
+function openStudyPackInTab() {
+  window.open('EP_Lecture_Study_Reference.pdf', '_blank');
 }
 // Legacy markup still calls toggleSlide / expandAll / collapseAll / jumpTo via inline onclicks.
 // In PPTX mode these become slide-jump or no-ops to avoid console errors.
